@@ -83,9 +83,15 @@ module.exports = (sequelize, DataTypes) => {
       beforeCreate: function(user, options){
         user.password = encryptPwd(user.password)
       },
+<<<<<<< HEAD
       afterUpdate: function(user, options){
         user.password = encryptPwd(user.password)
       }
+=======
+        beforeUpdate: function (user, options) {
+          user.password = encryptPwd(user.password);
+        },
+>>>>>>> facc1608fc11989ff504e41074153cb912948b36
     },
     sequelize,
     modelName: 'user',
