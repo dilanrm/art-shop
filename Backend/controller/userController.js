@@ -76,11 +76,7 @@ class userController{
                 {name,email,password,birthdate,gender,avatar,type},
                 {where: {id} }
             );
-            let token = tokenGenerator(data)
-            let decoded = tokenVerify(token)
-            res.status(200).json({
-                token: token,decoded
-            });
+            res.status(200).json(data);
         }catch(e){
             res.status(400).json({msg: e.error});
         }

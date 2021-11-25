@@ -12,5 +12,7 @@ const productRoute = require('./product');
 router.use('/products', productRoute);
 const orderRoute = require('./order');
 router.use('/orders', orderRoute);
+const shoppingRoute = require('./shoppingCart');
+router.use('/carts', shoppingRoute);
 
 module.exports = router;

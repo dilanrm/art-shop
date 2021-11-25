@@ -3,6 +3,7 @@ const {
   Model
 } = require('sequelize');
 const {encryptPwd} =  require('../helpers/bcrypt');
+const order = require('./order');
 module.exports = (sequelize, DataTypes) => {
   class user extends Model {
     /**
@@ -14,6 +15,7 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
       user.hasMany(models.product)
       user.hasMany(models.order)
+      user.hasMany(models.shopping_cart)
     }
   };
   user.init({
@@ -79,6 +81,9 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     hooks: {
       beforeCreate: function(user, options){
+        user.password = encryptPwd(user.password)
+      },
+      afterUpdate: function(user, options){
         user.password = encryptPwd(user.password)
       }
     },
