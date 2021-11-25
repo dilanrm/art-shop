@@ -12,6 +12,7 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
       order.belongsTo(models.user)
+      order.belongsTo(models.line_item)
     }
   };
   order.init({
