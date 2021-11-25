@@ -80,7 +80,10 @@ module.exports = (sequelize, DataTypes) => {
     hooks: {
       beforeCreate: function(user, options){
         user.password = encryptPwd(user.password)
-      }
+      },
+        beforeUpdate: function (user, options) {
+          user.password = encryptPwd(user.password);
+        },
     },
     sequelize,
     modelName: 'user',
