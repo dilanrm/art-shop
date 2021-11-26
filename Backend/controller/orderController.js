@@ -1,63 +1,83 @@
-const {order,  user} = require('../models');
+const {order, user} = require('../models');
 
-class orderController {
-    static async getOrder(req,res){
+class OrderController{
+    static async getOrder(req,res) {
         try {
-            const data = await order.findAll({
+            const result = await order.findAll({
                 include: [user],
-                order: [["id", "ASC"]],
-            });
-            res.status(200).json(data);
-        }catch(e){
-            res.status(400).json({msg: e.error});
+                order: [["id", "ASC"]]
+            })
+            res.status(200).json(result)
+        }catch(e) {
+            res.status(400).json({
+                message: e.error
+            })
         }
     }
 
     static async addOrder(req,res){
-        const {order_name,order_created_on,order_subtotal,order_discount,order_tax,order_total_due,order_total_qty,order_payt_trx_number,order_status,order_userId} = req.body;
+        const {name,createdOn,subtotal,discount,tax,total,total_qty,payt_trx_number,email,status,userId} = req.body;
         try {
-            const data = await order.create({
-                order_name,order_created_on,order_subtotal,order_discount,order_tax,order_total_due,order_total_qty,order_payt_trx_number,order_status,order_userId
+            const result = await order.create({
+                name,
+                createdOn,
+                subtotal,
+                discount,
+                tax,
+                total,
+                total_qty,
+                payt_trx_number,
+                email,
+                status,
+                userId
             });
-            res.status(200).json(data);
-        }catch(e){
-            res.json({msg: e.error});
-        }
+            res.status(200).json(result);
+        }catch(err){
+            res.status(400).json({
+                message: err.error
+            })
+        } 
     }
 
-    static async editPage(req,res){
-        const id = req.params.id;
+    static async editPage(req,res) {
         try {
-            const data = await order.findByPk(id);
-            res.status(200).json(data)
-        }catch(e){
-            res.status(400).json({msg: e.error});
+            const id = req.params.id;
+            const result = await order.findByPk(id);
+            res.status(200).json(result)
+        }catch(err) {
+            res.status(400).json({
+                message: err.error
+            })
         }
     }
 
-    static async editOrder(req,res){
-        try {
-            const id = +req.params.id;
-            const {order_name,order_created_on,order_subtotal,order_discount,order_tax,order_total_due,order_total_qty,order_payt_trx_number,order_status,order_userId} = req.body;
-            const data = await order.update(
-                {order_name,order_created_on,order_subtotal,order_discount,order_tax,order_total_due,order_total_qty,order_payt_trx_number,order_status,order_userId},
-                {where: {id} }
-            );
-            res.status(200).json(data);
-        }catch(e){
-            res.status(400).json({msg: e.error});
-        }
-    }
-
-    static async deleteOrder(req,res){
+    static async editOrder(req,res) {
         try {
             const id = +req.params.id;
-            const data = await order.destroy({where: {id} });
-            res.status(200).json({msg: `Succes delete id ${id}`});
-        }catch(e){
-            res.status(400).json({msg: e.error});
+            const {name,createdOn,subtotal,discount,tax,total,total_qty,payt_trx_number,email,status,userId} = req.body;
+            const result = await order.update({
+                name,createdOn,subtotal,discount,tax,total,total_qty,payt_trx_number,email,status,userId
+            }, {where: {id} });
+            res.status(200).json(result)
+        }catch(err) {
+            res.status(400).json({
+                message: err.error
+            })
+        }
+    }
+
+    static async deleteOrder(req,res) {
+        try {
+            const id = +req.params.id;
+            const result = await order.destroy({where: {id} });
+            res.status(200).json({message: `Success deleted id ${id}`})
+
+        }catch(err) {
+            res.status(400).json({
+                message: err.error
+            })
         }
     }
 }
 
-module.exports = orderController;
+module.exports = OrderController;

@@ -8,13 +8,13 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      shop_created_on: {
+      createdOn: {
         type: Sequelize.DATE
       },
-      shop_status: {
+      status: {
         type: Sequelize.STRING
       },
-      shop_userId: {
+      userId: {
         type: Sequelize.INTEGER
       },
       createdAt: {

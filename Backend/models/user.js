@@ -1,6 +1,10 @@
-"use strict";
-const { Model } = require("sequelize");
-const { encryptPwd } = require("../helpers/bcrypt");
+
+'use strict';
+const {
+  Model
+} = require('sequelize');
+const {encryptPwd} =  require('../helpers/bcrypt');
+const order = require('./order');
 module.exports = (sequelize, DataTypes) => {
   class user extends Model {
     /**
@@ -10,8 +14,9 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      user.hasMany(models.product);
-      user.hasMany(models.order);
+      user.hasMany(models.product)
+      user.hasMany(models.order)
+      user.hasMany(models.shopping_cart)
     }
   }
   user.init(
@@ -88,6 +93,21 @@ module.exports = (sequelize, DataTypes) => {
       sequelize,
       modelName: "user",
     }
+<<<<<<< HEAD
   );
+=======
+  }, {
+    hooks: {
+      beforeCreate: function(user, options){
+        user.password = encryptPwd(user.password)
+      },
+      afterUpdate: function(user, options){
+        user.password = encryptPwd(user.password)
+      }
+    },
+    sequelize,
+    modelName: 'user',
+  });
+>>>>>>> 9ed7391095677fb6fd4dd902adf5a1dc096cff3d
   return user;
 };

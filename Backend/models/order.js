@@ -12,20 +12,113 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
       order.belongsTo(models.user)
+      order.hasMany(models.line_item)
     }
   };
   order.init({
-    order_name: DataTypes.STRING,
-    order_created_on: DataTypes.DATE,
-    order_subtotal: DataTypes.INTEGER,
-    order_discount: DataTypes.INTEGER,
-    order_tax: DataTypes.INTEGER,
-    order_total_due: DataTypes.INTEGER,
-    order_total_qty: DataTypes.INTEGER,
-    order_payt_trx_number: DataTypes.STRING,
-    order_email: DataTypes.STRING,
-    order_status: DataTypes.STRING,
-    order_userId: DataTypes.INTEGER
+    name: {
+      type: DataTypes.STRING,
+      validate: {
+        notEmpty: {
+          message: "Name must be not empty"
+        },
+      }
+    },
+    createdOn: {
+      type: DataTypes.DATE,
+      validate: {
+        notEmpty: {
+          message: "CreatedOn must be not empty"
+        }
+      }
+    },
+    subtotal: {
+      type: DataTypes.INTEGER,
+      validate: {
+        notEmpty: {
+          message: "Subtotal must be not empty"
+        },
+        isNumeric: {
+          message: "Subtotal must numeric"
+        }
+      }
+    },
+    discount: {
+      type: DataTypes.INTEGER,
+      validate: {
+        isNumeric: {
+          message: "Discount must numeric"
+        }
+      }
+    },
+    tax: {
+      type: DataTypes.INTEGER,
+      validate: {
+        isNumeric: {
+          message: "Tax must numeric"
+        }
+      }
+    },
+    total: {
+      type: DataTypes.INTEGER,
+      validate: {
+        notEmpty: {
+          message: "Total must be not empty"
+        },
+        isNumeric: {
+          message: "Total must numeric"
+        }
+      }
+    },
+    total_qty: {
+      type: DataTypes.INTEGER,
+      validate: {
+        notEmpty: {
+          message: "Total Quantity must be not empty"
+        },
+        isNumeric: {
+          message: "Total Quantity must numeric"
+        }
+      }
+    },
+    payt_trx_number: {
+      type: DataTypes.STRING,
+      validate: {
+        notEmpty: {
+          message: "Payment transaction must be not empty"
+        }
+      }
+    },
+    email: {
+      type: DataTypes.STRING,
+      validate: {
+        notEmpty: {
+          message: "Email must be not empty"
+        },
+        isEmail: {
+          message: "Must email format"
+        }
+      }
+    },
+    status: {
+      type: DataTypes.STRING,
+      validate: {
+        notEmpty: {
+          message: "Status must be not empty"
+        }
+      }
+    },
+    userId: {
+      type: DataTypes.INTEGER,
+      validate: {
+        notEmpty: {
+          message: "UserId must be not empty"
+        },
+        isNumeric: {
+          message: "UserId must numeric"
+        }
+      }
+    }
   }, {
     sequelize,
     modelName: 'order',
