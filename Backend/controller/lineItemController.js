@@ -2,16 +2,7 @@ const {line_item, product, shopping_cart} = require('../models');
 
 class lineItemController{
     static getLineItem(req,res) {
-        line_item.findAll({
-            include: [
-                [product], 
-                [shopping_cart]
-            ],
-            order: [
-                ["id","ASC"]
-            ]
-
-        })
+        line_item.findAll()
         .then(data => {
             res.json(data)
         })
