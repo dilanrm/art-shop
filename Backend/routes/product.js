@@ -1,5 +1,6 @@
 const productRoute = require('express').Router()
 const productController = require('../controller/productController');
+// const {authentication} = require('../middlewares/auth');
 
 productRoute.get('/', productController.getProduct);
 productRoute.post('/add', productController.addProduct)
