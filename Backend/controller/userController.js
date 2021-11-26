@@ -72,6 +72,7 @@ class userController{
         try {
             const id = +req.params.id;
             const {name,email,password,birthdate,gender,avatar,type} = req.body;
+            // password = encryptPwd(user.password);
             const data = await user.update(
                 {name,email,password,birthdate,gender,avatar,type},
                 {where: {id} }
