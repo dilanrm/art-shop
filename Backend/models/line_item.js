@@ -10,17 +10,15 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      // define association here
-      line_item.belongsTo(models.product)
-      line_item.belongsTo(models.shopping_cart)
-      line_item.belongsTo(models.order)
+      line_item.belongsTo(models.product);
+      line_item.belongsTo(models.shopping_cart);
     }
   };
   line_item.init({
     qty: DataTypes.INTEGER,
     status: DataTypes.STRING,
-    productId: DataTypes.INTEGER,
-    shoppingcartId: DataTypes.INTEGER,
+    prod_id: DataTypes.INTEGER,
+    shop_id: DataTypes.INTEGER,
     order_name: DataTypes.STRING
   }, {
     sequelize,

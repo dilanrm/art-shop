@@ -10,7 +10,7 @@ class lineItemController{
             res.status(200).json(result)
         }catch(err) {
             res.status(400).json({
-                message: err.error
+                message: err
             })
         }
     }
