@@ -3,7 +3,11 @@ const {shopping_cart, user} = require('../models');
 class shoppingController{
     static async getCart(req,res) {
         try {
+            let {id} = req.userData
             const result = await shopping_cart.findAll({
+                where: {
+                    userId: id
+                },
                 include: [user],
                 order: [["id", "ASC"]]
             });
@@ -16,10 +20,11 @@ class shoppingController{
     }
 
     static async addCart(req,res) {
-        const {createdOn,status,userId} = req.body;
+        const {createdOn,status} = req.body;
         try {
+            let {id} = req.userData
             const result = await shopping_cart.create({
-                createdOn,status,userId
+                createdOn,status,userId: id
             });
             res.status(200).json(result)
         }catch(err) {

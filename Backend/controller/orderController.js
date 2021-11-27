@@ -3,7 +3,11 @@ const {order, user} = require('../models');
 class OrderController{
     static async getOrder(req,res) {
         try {
+            let {id} = req.userData
             const result = await order.findAll({
+                where: {
+                    userId: id
+                },
                 include: [user],
                 order: [["id", "ASC"]]
             })
@@ -16,8 +20,9 @@ class OrderController{
     }
 
     static async addOrder(req,res){
-        const {name,createdOn,subtotal,discount,tax,total,total_qty,payt_trx_number,email,status,userId} = req.body;
+        const {name,createdOn,subtotal,discount,tax,total,total_qty,payt_trx_number,email,status} = req.body;
         try {
+            const {id} = req.userData
             const result = await order.create({
                 name,
                 createdOn,
@@ -29,7 +34,7 @@ class OrderController{
                 payt_trx_number,
                 email,
                 status,
-                userId
+                userId: id
             });
             res.status(200).json(result);
         }catch(err){
