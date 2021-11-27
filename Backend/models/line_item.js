@@ -16,10 +16,47 @@ module.exports = (sequelize, DataTypes) => {
     }
   };
   line_item.init({
-    qty: DataTypes.INTEGER,
-    status: DataTypes.STRING,
-    productId: DataTypes.INTEGER,
-    shopping_cartId: DataTypes.INTEGER
+    qty: {
+      type: DataTypes.INTEGER,
+      validate: {
+        notEmpty: {
+          message: "Qty must be not empty"
+        },
+        isNumeric: {
+          message: "Qty must numeric"
+        }
+      }
+    },
+    status: {
+      type: DataTypes.STRING,
+      validate: {
+        notEmpty: {
+          message: "Status must be not empty"
+        }
+      }
+    },
+    productId: {
+      type: DataTypes.INTEGER,
+      validate: {
+        notEmpty: {
+          message: "ProductId must be not empty"
+        },
+        isNumeric: {
+          message: "ProductId must numeric"
+        }
+      }
+    },
+    shoppingCartId: {
+      type: DataTypes.INTEGER,
+      validate: {
+        notEmpty: {
+          message: "ShoppingCartId must be not empty"
+        },
+        isNumeric: {
+          message: "ShoppingCartId must numeric"
+        }
+      }
+    }
   }, {
     sequelize,
     modelName: 'line_item',
