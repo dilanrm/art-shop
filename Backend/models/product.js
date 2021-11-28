@@ -13,11 +13,7 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
       product.belongsTo(models.user);
       product.hasMany(models.product_image);
-<<<<<<< HEAD
-      product.hasMany(models.line_item)
-=======
       product.hasMany(models.line_item);
->>>>>>> a16eb5a708b17ed20c6405aa2a4f595d502e197b
     }
   };
   product.init({

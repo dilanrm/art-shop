@@ -66,11 +66,6 @@ module.exports = (sequelize, DataTypes) => {
       },
       avatar: {
         type: DataTypes.STRING,
-        validate: {
-          notEmpty: {
-            message: "Avatar must be not empty",
-          },
-        },
       },
       type: {
         type: DataTypes.STRING,
@@ -85,6 +80,7 @@ module.exports = (sequelize, DataTypes) => {
       hooks: {
         beforeCreate: function (user, options) {
           user.password = encryptPwd(user.password);
+          user.avatar = "http://via.placeholder.com/150";
         },
         beforeUpdate: function (user, options) {
           user.password = encryptPwd(user.password);
@@ -93,21 +89,6 @@ module.exports = (sequelize, DataTypes) => {
       sequelize,
       modelName: "user",
     }
-<<<<<<< HEAD
   );
-=======
-  }, {
-    hooks: {
-      beforeCreate: function(user, options){
-        user.password = encryptPwd(user.password)
-      },
-      afterUpdate: function(user, options){
-        user.password = encryptPwd(user.password)
-      }
-    },
-    sequelize,
-    modelName: 'user',
-  });
->>>>>>> a16eb5a708b17ed20c6405aa2a4f595d502e197b
   return user;
 };

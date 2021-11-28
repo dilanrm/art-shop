@@ -11,13 +11,8 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-<<<<<<< HEAD
-      shopping_cart.belongsTo(models.user)
-      shopping_cart.hasMany(models.line_item)
-=======
       shopping_cart.belongsTo(models.user);
       shopping_cart.hasMany(models.line_item);
->>>>>>> a16eb5a708b17ed20c6405aa2a4f595d502e197b
     }
   };
   shopping_cart.init({
