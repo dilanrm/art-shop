@@ -37,9 +37,9 @@ class userController{
             if(result){
                 if(decryptPwd(password,result.password)){
                     let token = tokenGenerator(result)
-                    let decoded = tokenVerify(token)
+                    // let decoded = tokenVerify(token)
                     res.status(200).json({
-                        token: token,decoded
+                        access_token: token
 
                     })
                 }else{

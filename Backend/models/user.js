@@ -93,6 +93,21 @@ module.exports = (sequelize, DataTypes) => {
       sequelize,
       modelName: "user",
     }
+<<<<<<< HEAD
   );
+=======
+  }, {
+    hooks: {
+      beforeCreate: function(user, options){
+        user.password = encryptPwd(user.password)
+      },
+      afterUpdate: function(user, options){
+        user.password = encryptPwd(user.password)
+      }
+    },
+    sequelize,
+    modelName: 'user',
+  });
+>>>>>>> a16eb5a708b17ed20c6405aa2a4f595d502e197b
   return user;
 };

@@ -3,9 +3,14 @@ const {product,  user} = require('../models');
 class productController {
     static async getProduct(req,res){
         try {
+            // console.log(req.userData)
+            let { id } = req.userData
             const data = await product.findAll({
+                where: {
+                    userId: id
+                },
                 include: [user],
-                order: [["id", "ASC"]],
+                order: [["id", "ASC"]]
             });
             res.status(200).json(data);
         }catch(e){
@@ -14,10 +19,11 @@ class productController {
     }
 
     static async addProduct(req,res){
-        const {name,description,price,stock,category,sold,rating,view,userId} = req.body;
         try {
+            const {name,description,price,stock,category,sold,rating,view} = req.body;
+            const {id} = req.userData
             const data = await product.create({
-                name,description,price,stock,category,sold,rating,view,userId
+                name,description,price,stock,category,sold,rating,view,userId: id
             });
             res.status(200).json({msg: "Success add"});
         }catch(e){

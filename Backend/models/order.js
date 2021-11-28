@@ -11,8 +11,12 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+<<<<<<< HEAD
       order.belongsTo(models.user)
       order.hasMany(models.line_item)
+=======
+      order.belongsTo(models.user);
+>>>>>>> a16eb5a708b17ed20c6405aa2a4f595d502e197b
     }
   };
   order.init({
