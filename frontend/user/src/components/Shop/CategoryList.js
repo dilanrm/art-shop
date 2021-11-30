@@ -10,7 +10,7 @@ export const CategoryList = () => {
         <a href="#">Fanart</a>
       </li>
       <li>
-        <a href="#">Anime</a>
+        <a href="#">Comics</a>
       </li>
     </ul>
   );

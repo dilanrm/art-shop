@@ -1,15 +1,19 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 // import "./Login.css";
 
 export const LoginForm = ({ Login, error }) => {
-  const [details, setDetails] = useState({ email: "", password: "" });
+  const [details, setDetails] = useState({ email: "", password: "", type:"admin" });
 
-  const submitHandler = e => {
-      e.preventDefault();
+  const submitHandler = (e) => {
+    e.preventDefault();
 
-      Login(details);
-  }
+    Login(details);
+  };
+
+  useEffect(() => {
+    console.log(error);
+  }, [error]);
 
   return (
     <div className="container">
@@ -19,14 +23,16 @@ export const LoginForm = ({ Login, error }) => {
       <main className="form-signin">
         <form onSubmit={submitHandler}>
           <h1 className="h3 mb-3 fw-normal">Login</h1>
-          {(error !== "") ? (<div className="error">{error}</div>) : ""}
+          {error !== "" ? <div className="error">{error}</div> : ""}
           <div class="form-floating">
             <input
               type="email"
               className="form-control"
               id="floatingInput"
               placeholder="name@example.com"
-              onChange={e=>setDetails({...details, email:e.target.value})}
+              onChange={(e) =>
+                setDetails({ ...details, email: e.target.value })
+              }
               value={details.email}
               required
             />
@@ -38,7 +44,9 @@ export const LoginForm = ({ Login, error }) => {
               className="form-control"
               id="floatingPassword"
               placeholder="Password"
-              onChange={e=>setDetails({...details, password:e.target.value})}
+              onChange={(e) =>
+                setDetails({ ...details, password: e.target.value })
+              }
               value={details.password}
               required
             />

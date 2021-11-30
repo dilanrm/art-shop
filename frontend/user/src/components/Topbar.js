@@ -36,7 +36,7 @@ export const Topbar = ({ Logout }) => {
               ) : (
                 <ul class="list-main">
                   <li>
-                    <i class="ti-user"></i> <Link to="#">My account</Link>
+                    <i class="ti-user"></i> <Link to="/profile">My account</Link>
                   </li>
                   <li>
                     <i class="ti-power-off"></i>

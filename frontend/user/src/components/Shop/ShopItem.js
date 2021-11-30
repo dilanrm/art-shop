@@ -43,7 +43,7 @@ export const ShopItem = () => {
         </div>
         <div class="product-content">
           <h3>
-            <a href="product-details.html">Women Hot Collection</a>
+            <a href="product-details.html">Mountain Painting</a>
           </h3>
           <div class="product-price">
             <span>$29.00</span>

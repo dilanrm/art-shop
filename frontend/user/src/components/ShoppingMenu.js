@@ -7,9 +7,9 @@ export const ShoppingMenu = () => {
       <div class="right-bar">
         {/* <!-- Search Form --> */}
         <div class="sinlge-bar">
-          <a href="#" class="single-icon">
+          <Link to="/profile" class="single-icon">
             <i class="fa fa-user-circle-o" aria-hidden="true"></i>
-          </a>
+          </Link>
         </div>
         <div class="sinlge-bar shopping">
           <a href="#" class="single-icon">
@@ -18,7 +18,7 @@ export const ShoppingMenu = () => {
           {/* <!-- Shopping Item --> */}
           <div class="shopping-item">
             <div class="dropdown-cart-header">
-              <span>2 Items</span>
+              <span>1 Items</span>
               <a href="#">View Cart</a>
             </div>
             <ul class="shopping-list">
@@ -30,24 +30,10 @@ export const ShoppingMenu = () => {
                   <img src="https://via.placeholder.com/70x70" alt="#" />
                 </a>
                 <h4>
-                  <a href="#">Woman Ring</a>
+                  <a href="#">Mountain Painting</a>
                 </h4>
                 <p class="quantity">
                   1x - <span class="amount">$99.00</span>
-                </p>
-              </li>
-              <li>
-                <a href="#" class="remove" title="Remove this item">
-                  <i class="fa fa-remove"></i>
-                </a>
-                <a class="cart-img" href="#">
-                  <img src="https://via.placeholder.com/70x70" alt="#" />
-                </a>
-                <h4>
-                  <a href="#">Woman Necklace</a>
-                </h4>
-                <p class="quantity">
-                  1x - <span class="amount">$35.00</span>
                 </p>
               </li>
             </ul>

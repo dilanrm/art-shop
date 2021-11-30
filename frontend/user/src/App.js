@@ -11,6 +11,7 @@ import { Regist } from "./pages/Regist";
 import { Shop } from "./pages/Shop";
 import { Cart } from "./pages/Cart";
 import { Checkout } from "./pages/Checkout";
+import { Profile } from "./pages/Profile";
 
 
 function App() {
@@ -86,6 +87,7 @@ function App() {
                 }
               />
               <Route path="/shop" element={<Shop loading={loading} />} />
+              <Route path="profile" element={<Profile loading={loading} />} />
               <Route path="/cart" element={<Cart loading={loading} />} />
               <Route path="/checkout" element={<Checkout loading={loading} />} />
               <Route path="/contact" element={<Contact />} loading={loading} />

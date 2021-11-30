@@ -24,7 +24,7 @@ export const CartTable = () => {
               </td>
               <td class="product-des" data-title="Description">
                 <p class="product-name">
-                  <a href="#">Women Dress</a>
+                  <a href="#">Mountain Painting</a>
                 </p>
                 <p class="product-des">
                   Maboriosam in a tonto nesciung eget distingy magndapibus.

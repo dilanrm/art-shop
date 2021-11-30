@@ -11,6 +11,8 @@ import { User } from "./User";
 import { Order } from "./Order";
 import { Product } from "./Product";
 import { Image } from "./Image";
+import{ EditProd } from "./EditProd";
+import { AddProd } from "./AddProd";
 
 export const Main = () => {
   return (
@@ -21,6 +23,8 @@ export const Main = () => {
           <Routes>
             <Route exact path="/" element={<Dashboard />} />
             <Route path="/product" element={<Product />} />
+            <Route path="/product/edit/:id" element={<EditProd />} />
+            <Route path="/product/add" element={<AddProd />} />
             <Route path="/order" element={<Order />} />
             <Route path="/user" element={<User />} />
             <Route path="/chart" element={<Chart />} />

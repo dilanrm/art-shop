@@ -8,7 +8,7 @@ export const RecentPost = () => {
       </div>
       <div class="content">
         <h5>
-          <a href="#">Girls Dress</a>
+          <a href="#">Mountain Printing</a>
         </h5>
         <p class="price">$99.50</p>
         <ul class="reviews">
