@@ -3,6 +3,8 @@ const productController = require('../controller/productController');
 const {authentication} = require('../middlewares/auth');
 
 productRoute.get('/', authentication, productController.getProduct);
+productRoute.get('/:id', authentication, productController.getProductById);
+productRoute.get('/all', productController.getProductAll);
 productRoute.post('/add', authentication, productController.addProduct)
 productRoute.get('/edit/:id', productController.editPage);
 productRoute.put('/edit/:id', authentication, productController.editProduct);

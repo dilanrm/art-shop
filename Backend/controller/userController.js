@@ -35,10 +35,10 @@ class userController {
 
   static async login(req, res) {
     try {
-      const { email, password } = req.body;
+      const { email, password,type } = req.body;
       let result = await user.findOne({
         where: {
-          email,
+          email,type
         },
       });
       if (result) {
@@ -49,12 +49,12 @@ class userController {
             access_token: token,
           });
         } else {
-          res.status(404).json({
+          res.json({
             message: "Password is not correct",
           });
         }
       } else {
-        res.status(400).json({
+        res.json({
           message: "User not found",
         });
       }

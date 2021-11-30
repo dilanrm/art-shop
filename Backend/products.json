@@ -1,13 +1,79 @@
 [
     {
-        "name":"",
-        "description":"",
+        "name":"Lukisan kakashi-acrylic painting",
+        "description":"Karya CORY ACHMAD, Media: Acrylic on canvas, Dimensi: 40cmx60cm, Tahun 2021",
         "price":0,
         "stock":1,
-        "category":"",
+        "category":"Painting",
         "sold":0,
         "rating":0,
         "view":0,
         "userId":1
-    }    
+    },
+    {
+        "name":"Lukisan Naga Emas Painting 5D",
+        "description":"Karya DIY DIAMOND PAINTING, Media: Kanvas dan berlian imitasi, Dimensi: 50cmx80cm, Tahun 2021",
+        "price":0,
+        "stock":1,
+        "category":"Fanart",
+        "sold":0,
+        "rating":0,
+        "view":0,
+        "userId":1
+    },
+    {
+        "name":"Lukisan Pasar Lama",
+        "description":"Karya ARMIN FIRDAUS, Media: Kanvas, Dimensi: 60cmx80cm, Tahun 2020 ",
+        "price":0,
+        "stock":1,
+        "category":"Fanart",
+        "sold":0,
+        "rating":0,
+        "view":0,
+        "userId":1
+    },
+    {
+        "name":"Lukisan Kuda Liar",
+        "description":"Karya ARMIN FIRDAUS, Media: Kanvas, Dimensi: 95cmx195cm, Tahun 2021",
+        "price":0,
+        "stock":1,
+        "category":"Fanart",
+        "sold":0,
+        "rating":0,
+        "view":0,
+        "userId":1
+    },
+    {
+        "name":"Lukisan Boutique520 Japanese Comic",
+        "description":"Karya Boutique520, Media: Rhinestones dan Kanvas, Dimensi: 45cmx30cm, Tahun 2021",
+        "price":0,
+        "stock":1,
+        "category":"Comics",
+        "sold":0,
+        "rating":0,
+        "view":0,
+        "userId":1
+    },
+    {
+        "name":"Lukisan Diamond DIY Comics",
+        "description":"Karya Boutique520, Media: Acrylic dan Cloth, Dimensi: 20cmx25cm, Tahun 2021",
+        "price":0,
+        "stock":1,
+        "category":"Comics",
+        "sold":0,
+        "rating":0,
+        "view":0,
+        "userId":1
+    },
+    {
+        "name":"Lukisan 2 Rusa Bunga Painting 5D",
+        "description":"Karya SATHIA COLLECTION, Media: Kanvas, Dimensi: 30cmx40cm, Tahun 2021",
+        "price":0,
+        "stock":1,
+        "category":"Fanart",
+        "sold":0,
+        "rating":0,
+        "view":0,
+        "userId":1
+    }
 ]

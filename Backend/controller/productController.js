@@ -18,10 +18,47 @@ class productController {
         }
     }
 
+    static async getProductAll(req,res){
+        try {
+            // console.log(req.userData)
+            const data = await product.findAll({
+                include: [user],
+                order: [["id", "ASC"]]
+            });
+            res.status(200).json(data);
+        }catch(e){
+            res.status(400).json({msg: e.error});
+        }
+    }
+
+    static async getProductById(req,res){
+        const id = +req.params.id;
+        try {
+            // console.log(req.userData)
+            let { id } = req.userData
+            const data = await product.findAll({
+                where: {
+                    id,
+                    userId: id
+                },
+                include: [user],
+                order: [["id", "ASC"]]
+            });
+            res.status(200).json(data);
+        }catch(e){
+            res.status(400).json({msg: e.error});
+        }
+    }
+
     static async addProduct(req,res){
         try {
             const {name,description,price,stock,category,sold,rating,view} = req.body;
-            const {id} = req.userData
+            let id = 0;
+            if(req.body.userId){
+                id = req.body.userId;
+            }else{
+                id = req.userData.id;
+            }
             const data = await product.create({
                 name,description,price,stock,category,sold,rating,view,userId: id
             });
